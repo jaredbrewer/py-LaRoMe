@@ -1,7 +1,5 @@
 
-# LaROI
-
-LaROI = Label + Region Of Interest
+# LaRoMe
 
 **Label image** (aka Count Masks): An image in which pixels of an object have all the same value. Each object has a unique value.
  
