@@ -1,7 +1,7 @@
 
 # LaRoMe
 
-Jython translation of the outstanding basework done in https://github.com/BIOP/ijp-LaRoMe. This is meant to increase the programmatic nature of these tools by integrating them into Python language work flows in FIJI/ImageJ.
+Jython translation of the outstanding basework done in https://github.com/BIOP/ijp-LaRoMe. This is meant to increase the programmatic nature of these tools by integrating them into Python language workflows in FIJI/ImageJ.
 
 **Label image** (aka Count Masks): An image in which pixels of an object have all the same value. Each object has a unique value.
  
