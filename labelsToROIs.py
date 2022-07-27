@@ -3,6 +3,7 @@ from ij.gui import Wand, PolygonRoi, Roi
 from ij.plugin import Duplicator
 from ij.plugin.frame import RoiManager
 from ij.process import ImageProcessor
+import os
 
 def labelsToROIs(imp):
 	
@@ -17,19 +18,19 @@ def labelsToROIs(imp):
 	
 		pixel_width = []
 	
-		for num in range(0, width-1):
+		for num in range(0, width - 1):
 			pixel_width.append(num)
 		
 		pixel_height = []
 	
-		for num in range(0, height-1):
+		for num in range(0, height - 1):
 			pixel_height.append(num)
 
 		ip.setColor(0)
 	
 		for y_coord in pixel_height:
 			for x_coord in pixel_width:
-				if ip.getPixel(x_coord, y_coord) > 0.0:
+				if ip.getPixel(x_coord, y_coord) > 0:
 					wand.autoOutline(x_coord, y_coord)
 					if wand.npoints > 0:
 						roi = PolygonRoi(wand.xpoints, wand.ypoints, wand.npoints, Roi.TRACED_ROI)
@@ -45,7 +46,7 @@ def labelsToROIs(imp):
 				rm.addRoi(r)
 		
 		rm.runCommand(imp, "Show All")
-	
+
 	copy_imp = imp.duplicate()
 	rm.reset()
 	
