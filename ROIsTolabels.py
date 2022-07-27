@@ -34,15 +34,13 @@ def ROIsTolabels(rois, imp_path = None):
 		imp = IJ.openImage(imp_path)
 	
 	def R2L(imp):
-	
 		label_imp = imp.duplicate()
-		IJ.run(label_imp, "Gray", "")
+		IJ.run(label_imp, "Grays", "")
 		IJ.run(label_imp, "16-bit", "")
 		rc = rm.getRoisAsArray()
 		
 		stackN = label_imp.getImageStackSize()
 		isStack = bool()
-		
 		if stackN > 1:
 			isStack = True
 		
@@ -64,8 +62,10 @@ def ROIsTolabels(rois, imp_path = None):
 			label_imp.getProcessor().fill(rc[i])
 		
 		label_imp.setTitle("ROIsTolabels_" + imp.getTitle())
-		label_imp.show()
-		
+		imp_dir = os.path.dirname(rois)		
+		limp_title = label_imp.getTitle()
+		IJ.saveAs(label_imp, "Tiff", os.path.join(imp_dir, limp_title))
+						
 	rm.reset()
 	
 	dimensions = imp.getDimensions()
