@@ -26,7 +26,7 @@ for p in sys.path:
 
 From a **Label Image**(§), generate ROIs and add them to the ImageJ ROI Manager.
 
-labelsToROIs requires one argument (imp) and has one optional argument (save, as a boolean True or False; default = False). Saving the ROIs will allow them to be used for the inverse approach used by ROIsTolabels
+labelsToROIs requires one argument (imp). Saving the ROIs will allow them to be used for the inverse approach used by ROIsTolabels - this is best done in your own script (example coming soon).
 
 Example:
 ```
